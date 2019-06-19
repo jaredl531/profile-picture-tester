@@ -11,10 +11,15 @@
   <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
   <link rel="shortcut icon" href="favicon.ico">
   <script>
-  var app = new Clarifai.App(
-    CLIENT_ID,
-    CLIENT_SECRET
-  );
+  try {
+    var app = new Clarifai.App({
+     apiKey: myApiKey
+    });
+  }
+  catch(err) {
+    alert("Need a valid API Key!");
+    throw "Invalid API Key";
+  }
   
   // Checks for valid image type
   function validFile(imageName) {

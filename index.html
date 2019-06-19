@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name=viewport content='width=700'>
+	<link rel="shortcut icon" href="" type="image/x-icon">
+  <title>Should I make this my profile picture?</title>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="predict.js"></script>
+  <script type="text/javascript" src="keys.js"></script>
+  <script type="text/javascript" src="https://sdk.clarifai.com/js/clarifai-latest.js"></script>
+  <link rel="shortcut icon" href="favicon.ico">
+  <script>
+  var app = new Clarifai.App(
+    CLIENT_ID,
+    CLIENT_SECRET
+  );
+  
+  // Checks for valid image type
+  function validFile(imageName) {
+    var lowerImageName = imageName.toLowerCase();
+    return lowerImageName.search(/jpg|png|bmp|tiff|jpeg/gi) != -1;
+  }
+  
+  // Fills custom model dropdown
+  window.onload = function() {
+  }
+  </script>
+  
+  <style type="text/css">
+    body { margin-left:20px; margin-top:20px; margin-bottom:30px; font-family: sans-serif; height:100%}
+
+    table.categoryTitle td {
+    	width:200px;
+    }
+    
+    /* Input boxes */
+    input[type="text"] {
+  		display: block;
+  		margin: 0;
+  		/*width: 100%;*/
+  		font-family: sans-serif;
+  		font-size: 20px;
+  		appearance: none;
+  		box-shadow: none;
+  		border-radius: none;
+		}
+		input[type="text"]:focus {
+  		outline: none;
+		}
+		
+		.style-1 input[type="text"] {
+		  padding: 10px;
+		  border: solid 1px #dcdcdc;
+		  transition: box-shadow 0.3s, border 0.3s;
+		}
+		.style-1 input[type="text"]:focus,
+		.style-1 input[type="text"].focus {
+		  border: solid 1px #707070;
+		  box-shadow: 0 0 5px 1px #969696;
+		}
+    
+    ul {
+    	padding-left:0;
+    	list-style-type: none;
+    	display:inline;
+    }
+    
+    button:focus {
+    	outline:0;
+    }
+    
+    /* MOBILE STUFF */
+    
+    input, textarea {
+  		max-width:90%
+		}	
+		
+    img {
+  		max-width: 90%
+		}	
+		
+		/*****************/
+		
+    .conceptBox {
+      float:left; 
+      margin-left:40px; 
+      margin-top:15px;
+      margin-bottom:30px;
+      height:100%;
+    }
+    
+    .uploadButton {
+    	width:150px; 
+    	height:50px; 
+    	font-size:14px; 
+    	border-radius:10px; 
+    	background-color:#e7e7e7;
+    }
+    
+    .imageAnalysis {
+    	margin-top:70px; 
+    	margin-bottom:50px;
+    	display:table;
+    	margin-right: auto;
+  		margin-left: auto;
+    }
+    
+    .categoryTitle {
+    	font-size:32px;
+    }
+    
+    .subCategory {
+    	font-size:14px;
+    }
+    
+    .bottomMessage {
+    	margin-top:100px;
+    	margin-left:50px;
+    	margin-right:50px;
+    	margin-bottom:50px;
+    	font-size:54px;
+    }
+    
+    .footer {
+    	margin-top:100px;
+    }
+    
+  </style>
+</head>
+<body>
+  <div id="Title" style="font-size:52px; font-face:Arial; margin-top:40px;" align="center">Should I make this my profile picture?</div>
+	<input type="hidden" id="hidden-counter" name="hidden-counter" value="1"/>
+	
+  <div id="uploadButtons" style="margin-top:60px; margin-left:20%" align="left">
+    
+    <ul class="input-list style-1 clearfix">
+    	<li>
+    		<input type="text" id="imgurl" placeholder="Image URL" size="65%" style="display:inline-block"/>
+    	</li>
+    </ul>
+    
+    <br/>
+    
+    <button onclick="
+      if(imgurl.value == '') { 
+        alert('Please enter an image URL!'); 
+        return;
+      } 
+    
+      else if (!validFile(imgurl.value)) {
+        alert('Supported File Types: JPEG, PNG, TIFF, BMP');
+        return;
+      }
+    
+      predict_click($('#imgurl').val(), 'url');" class="uploadButton">Upload a URL!</button>&nbsp;&nbsp;
+    
+    <br/><br/><br/>
+        
+    <input type="file" id="filename" style="font-size:16px" size="50"/>
+    
+    <br/><br/>
+    
+    <button onclick="
+      if(filename.value == '') { 
+        alert('Please browse for a file!'); 
+        return;
+      } 
+    
+      else if (!validFile(filename.value)) {
+        alert('Supported File Types: JPEG, PNG, TIFF, BMP');
+        return;
+      }
+      predict_click($('#filename').val(), 'file');" class="uploadButton">Upload a local file!</button>&nbsp;&nbsp;
+
+    <br/><br/>
+    <span style="font-size:12px">(Files under 2 MB work best)</span>
+  </div>
+  
+  <div id="imageAnalysis" class="imageAnalysis" align="center">
+      <div id="picture" style="float:left; margin-top:20px"><img id="img_preview" src="" width="400" style="display:none"/></div> 
+    	<table id="ResultsTable" style="visibility:hidden;float:left; margin-left:60px"></table>
+  </div>
+  
+  <div id="bottomMessage" class="bottomMessage" align="center">
+  </div>
+  
+  <div id="footer" class="footer" align="center">
+  Made with love using &nbsp;&nbsp;<a href="https://www.clarifai.com" target="_blank"><img src="clarifai-logo-small.jpg"/></a>
+  </div>
+  
+
+  
+</body>
+</html>

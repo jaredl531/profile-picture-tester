@@ -50,7 +50,7 @@ Just a Celebrity
 
 Not a Human
 
-<img src="https://jared-hack-projects.s3.us-east-2.amazonaws.com/profile-picture-tester/examples/dog.png"/>
+<img src="https://jared-hack-projects.s3.us-east-2.amazonaws.com/profile-picture-tester/examples/pug.png"/>
 
 Mine!
 

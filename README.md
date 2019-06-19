@@ -1,5 +1,5 @@
 # Should I make this my profile picture?
-A fun UI that uses Clarifai's General, NSFW, Celebrity and Focus Models to determine if a picture is worthy of being used on Social Media profile. 
+A fun UI that uses Clarifai's General, NSFW, Celebrity and Focus Models to determine if a picture is worthy of being used on a Social Media profile. 
 
 A live demo can be viewed [here](https://jared-hack-projects.s3.us-east-2.amazonaws.com/profile-picture-tester/index.html).
 

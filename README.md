@@ -3,6 +3,8 @@ A fun UI that uses Clarifai's General, NSFW, Celebrity and Focus Models to deter
 
 A live demo can be viewed [here](https://jared-hack-projects.s3.us-east-2.amazonaws.com/profile-picture-tester/index.html).
 
+<img src="https://jared-hack-projects.s3.us-east-2.amazonaws.com/profile-picture-tester/examples/main-screen.png"/>
+
 ## How to get started
 
 The tester uses the Clarifai API, so you'll need to grab an API Key by [signing up](https://portal.clarifai.com/signup) and then clicking on your default application. You'll then want to add it to the keys.js file:

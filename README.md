@@ -5,17 +5,13 @@ A live demo can be viewed [here](https://jared-hack-projects.s3.us-east-2.amazon
 
 ## How to get started
 
-The tester uses the Clarifai API, so you'll need to [sign up](http://clarifai.com/signup) for an account there and then grab your API Key. You can retrieve the latter via the [portal](https://portal.clarifai.com/apps) page, where you'll need to click on your application:
-
-<img src="https://jared-hack-projects.s3.us-east-2.amazonaws.com/clarifai-javascript-starter/api-key.png" width="400"/>
-
-Replace your API key with the default string in the `keys.js` file, and then you should be able to run this locally! 
+The tester uses the Clarifai API, so you'll need to grab an API Key by [signing up](https://portal.clarifai.com/signup) and then clicking on your default application. You'll then want to add it to the keys.js file:
 
 ```
 var myApiKey = 'YOUR API KEY HERE';
 ```
 
-Voila.
+One this is done you should be able to run this locally! 
 
 ## What Gets Measured
 
